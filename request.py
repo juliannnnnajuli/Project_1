@@ -16,6 +16,14 @@ def get_main(url):
         print(l.text)
 
 
-get_main('https://www.hse.ru/staff/allat/')
-get_main('https://www.hse.ru/org/persons/135897')
-get_main('https://www.hse.ru/org/persons/63890353')
+# get_main('https://www.hse.ru/staff/allat/')
+# get_main('https://www.hse.ru/org/persons/135897')
+# get_main('https://www.hse.ru/org/persons/63890353')
+# pul_addres = (
+#     'https://www.hse.ru/staff/allat/',
+#     'https://www.hse.ru/org/persons/135897',
+#     'https://www.hse.ru/org/persons/63890353'
+# )
+endpoints = ('135897', '63890353')
+for point in endpoints:
+    get_main(f'https://www.hse.ru/org/persons/{point}')
