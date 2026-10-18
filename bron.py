@@ -49,6 +49,7 @@ canvas.create_text(300, 30, text='1500')
 # btn2.config(text=2, font=('Arial', 10), bg='red',justify='center',
 #             width=2, command = lambda x = btn2: handler(x))
 # btn2.grid(row=0, column=1)
+# btn3.grid(row=0, column=1)
 
 row = 10
 column = 18
