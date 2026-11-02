@@ -82,6 +82,7 @@ crypto_combobox = ttk.Combobox(
     font=("Arial", 11)
 )
 crypto_combobox.pack(padx=10, pady=5)
+crypto_combobox.bind("<<ComboboxSelected>>", update_label)
 
 result_label = ttk.Label(
     text="Монета не выбрана",
@@ -103,5 +104,18 @@ Button(
     relief=FLAT,
     cursor="hand2"
 ).pack(padx=10, pady=10)
+
+Button(
+    text="Выйти",
+    command=window.destroy, # Эта команда закрывает окно
+    width=20,
+    font=("Arial", 11, "bold"),
+    bg="#F6465D",
+    fg="white",
+    activebackground="#d13a4f",
+    activeforeground="white",
+    relief=FLAT,
+    cursor="hand2"        # Сделаем текст красным для заметности
+).pack(padx=10, pady=(10, 20))
 
 window.mainloop()
