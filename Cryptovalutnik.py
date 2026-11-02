@@ -107,7 +107,7 @@ Button(
 
 Button(
     text="Выйти",
-    command=window.destroy, # Эта команда закрывает окно
+    command=window.destroy,
     width=20,
     font=("Arial", 11, "bold"),
     bg="#F6465D",
@@ -115,7 +115,10 @@ Button(
     activebackground="#d13a4f",
     activeforeground="white",
     relief=FLAT,
-    cursor="hand2"        # Сделаем текст красным для заметности
+    cursor="hand2"
 ).pack(padx=10, pady=(10, 20))
+
+window.bind('<Return>', lambda event: get_price())
+window.bind('<KP_Enter>', lambda event: get_price())
 
 window.mainloop()
