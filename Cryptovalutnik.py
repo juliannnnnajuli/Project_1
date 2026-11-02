@@ -18,8 +18,14 @@ crypto_coins = {
 }
 
 
+def update_label(event): #функция обновления надписи с выбранной криптовалютой
+    selected = crypto_combobox.get().strip()
+    if selected:
+        result_label.config(text=f"Выбрано: {selected}",
+                            background="#1E1E24", foreground="gray")
+
+
 def get_price(): #функция получения курса
-    """Запрашивает курс выбранной криптовалюты к USD и выводит результат."""
     coin_id = crypto_combobox.get().strip()
 
     if not coin_id:
