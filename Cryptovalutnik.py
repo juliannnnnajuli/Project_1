@@ -26,7 +26,6 @@ def get_price(): #функция получения курса
         mb.showwarning("Внимание", "Выберите криптовалюту из списка")
         return
 
-    # Ищем ключ по отображаемому названию
     selected_crypto = None
     for key, value in crypto_coins.items():
         if value == coin_id:
@@ -59,8 +58,44 @@ def get_price(): #функция получения курса
         mb.showerror("Ошибка", f"Произошла ошибка:\n{e}")
 
 
-root = Tk()
-root.title('Криптовалютник')
-root.geometry('360x180')
+window = Tk()
+window.title("Курсы криптовалют")
+window.geometry("400x250")
+window.configure(bg="#1E1E24")
 
-root.mainloop()
+Label(text="Выберите криптовалюту:",
+      font=("Arial", 12, "bold"),
+      bg="#1E1E24",
+      fg="#FFFFFF"
+      ).pack(padx=10, pady=(25, 5))
+
+crypto_combobox = ttk.Combobox(
+    values=list(crypto_coins.values()),
+    state="readonly",
+    width=30,
+    font=("Arial", 11)
+)
+crypto_combobox.pack(padx=10, pady=5)
+
+result_label = ttk.Label(
+    text="Монета не выбрана",
+    font=("Arial", 11),
+    background="#1E1E24",
+    foreground="gray"
+)
+result_label.pack(padx=10, pady=10)
+
+Button(
+    text="Получить курс",
+    command=get_price,
+    width=20,
+    font=("Arial", 11, "bold"),
+    bg="#2EBD85",
+    fg="white",
+    activebackground="#26a674",
+    activeforeground="white",
+    relief=FLAT,
+    cursor="hand2"
+).pack(padx=10, pady=10)
+
+window.mainloop()
