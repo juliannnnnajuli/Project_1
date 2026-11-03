@@ -75,6 +75,7 @@ Label(text="Выберите криптовалюту:",
       fg="#FFFFFF"
       ).pack(padx=10, pady=(25, 5))
 
+#Выпадающий список валют
 crypto_combobox = ttk.Combobox(
     values=list(crypto_coins.values()),
     state="readonly",
@@ -92,6 +93,7 @@ result_label = ttk.Label(
 )
 result_label.pack(padx=10, pady=10)
 
+#Кнопка получения курса
 Button(
     text="Получить курс",
     command=get_price,
@@ -105,6 +107,7 @@ Button(
     cursor="hand2"
 ).pack(padx=10, pady=10)
 
+#кнопка Выхода
 Button(
     text="Выйти",
     command=window.destroy,
@@ -116,7 +119,7 @@ Button(
     activeforeground="white",
     relief=FLAT,
     cursor="hand2"
-).pack(padx=10, pady=(10, 20))
+).pack(padx=10, pady=10)
 
 window.bind('<Return>', lambda event: get_price())
 window.bind('<KP_Enter>', lambda event: get_price())
