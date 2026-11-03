@@ -18,14 +18,17 @@ crypto_coins = {
 }
 
 
-def update_label(event): #функция обновления надписи с выбранной криптовалютой
+def update_label(event):  # функция обновления надписи с выбранной криптовалютой
     selected = crypto_combobox.get().strip()
     if selected:
-        result_label.config(text=f"Выбрано: {selected}",
-                            background="#1E1E24", foreground="gray")
+        result_label.config(
+            text=f"Выбрано: {selected}",
+            bg="#1E1E24", fg="#F3BA2F",
+            font=("Arial", 11, "bold")
+        )
 
 
-def get_price(): #функция получения курса
+def get_price():  # функция получения курса
     coin_id = crypto_combobox.get().strip()
 
     if not coin_id:
@@ -69,13 +72,14 @@ window.title("Криптовалютник")
 window.geometry("400x330")
 window.configure(bg="#1E1E24")
 
-Label(text="Выберите криптовалюту:",
-      font=("Arial", 12, "bold"),
-      bg="#1E1E24",
-      fg="#FFFFFF"
-      ).pack(padx=10, pady=(25, 5))
+Label(
+    text="Выберите криптовалюту:",
+    font=("Arial", 12, "bold"),
+    bg="#1E1E24",
+    fg="#FFFFFF"
+).pack(padx=10, pady=(25, 5))
 
-#Выпадающий список валют
+# Выпадающий список валют
 crypto_combobox = ttk.Combobox(
     values=list(crypto_coins.values()),
     state="readonly",
@@ -85,15 +89,15 @@ crypto_combobox = ttk.Combobox(
 crypto_combobox.pack(padx=10, pady=5)
 crypto_combobox.bind("<<ComboboxSelected>>", update_label)
 
-result_label = ttk.Label(
+result_label = Label(
     text="Монета не выбрана",
     font=("Arial", 11),
-    background="#1E1E24",
-    foreground="gray"
+    bg="#1E1E24",
+    fg="gray"
 )
 result_label.pack(padx=10, pady=10)
 
-#Кнопка получения курса
+# Кнопка получения курса
 Button(
     text="Получить курс",
     command=get_price,
@@ -107,7 +111,7 @@ Button(
     cursor="hand2"
 ).pack(padx=10, pady=10)
 
-#кнопка Выхода
+# кнопка Выхода
 Button(
     text="Выйти",
     command=window.destroy,
