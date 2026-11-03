@@ -65,8 +65,8 @@ def get_price(): #функция получения курса
 
 
 window = Tk()
-window.title("Курсы криптовалют")
-window.geometry("400x250")
+window.title("Криптовалютник")
+window.geometry("400x330")
 window.configure(bg="#1E1E24")
 
 Label(text="Выберите криптовалюту:",
